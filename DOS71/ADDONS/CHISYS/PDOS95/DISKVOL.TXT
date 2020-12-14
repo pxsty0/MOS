@@ -1,0 +1,3 @@
+Disk Vol:
+    PDOS95_ADDON
+ for M-OS Kurulumu.

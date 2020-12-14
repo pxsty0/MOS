@@ -1,0 +1,5 @@
+[Setup]
+Addname=CHISYS
+Addvers=1.0
+AddText=M-OS Cınce Dosyalarıdır.
+Destzip=CDOS.ZIP

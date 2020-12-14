@@ -1,0 +1,150 @@
+/*
+                       Resource Configuration Program   
+                                    for                                     
+                         Sound Blaster 16 Emulation         
+                               (Version 1.01)                        
+                                                                            
+                Document Revision/Date : 0.05/09 September 1998       
+Copyright 1998.(c)  Creative Technology Ltd.  All Rights Reserved. 
+*/ 
+
+
+1.  OBJECTIVE
+    =========
+
+    Use SBESET.EXE to manually configure SB resources or 
+    disable SB Emulation. By default, SB Emulation in DOS follows 
+    the Windows settings. For example, if you disable SB Emulation 
+    in Windows, in the next boot to DOS SB Emulation in DOS 
+    disabled. Under rare circumstances you may need to manually 
+    reconfigure DOS SB Emulation, for example, if there is conflict 
+    in DOS before it can boot to Windows. 
+
+
+2.  PROGRAM DESCRIPTION AND USAGE
+    =================================
+    SBESET.EXE is run from the command line. To set SBESET 
+    values in the command line, at the DOS prompt, type the 
+    SBESET command in a single line. 
+    Its syntax is:
+  
+    SBESET [-Axxx] [-Ix] [-Dx] [-Hx] [-Pxxx] [-Jxxx] [-dx] [-wx] [-c] [-?]
+  
+    where square brackets [ ] denote optional parameters, and:
+
+  This	
+  Parameter   Specifies
+  ---------   --------------------------------------------
+  -Axxx       SB interface's base I/O address.
+              Possible values: 220, 240, 260, 280.
+  -Ix         IRQ line used by the audio interface.
+              Possible values: 5, 7, 9, 10.
+  -Dx         First DMA channel used by the audio interface.
+              Possible values: 0, 1, 3 
+  -Hx         Second DMA channel used by the audio interface.
+              Possible values: 5, 6, 7
+  -Pxxx       MPU-401 UART interface’s base I/O address.
+              Possible values: 300, 310, 320, 330.
+  -Jxxx       Gameport/Joystick interface's base I/O address.
+              Possible values: 200, 208, 210, 218, ..., 800, ... 
+  -jx         Gameport/Joystick mode. For x, 1 is On, 0 is Off.
+  -dx         SB Emulation mode. For x, 1 is Off, 0 is On.
+  -wx         Set x to 1 to use the Windows-assigned resource 
+              configuration.
+              Set x to 0 to use (your) user-assigned resource 
+              configuration.
+  -c          Display of current SBE resource configuration.
+  -?          Help option
+  
+  An example of an SBESET command is 
+      SBESET -A240 -I5 -D3 -J218
+  which corresponds to "set the SB interface’s base I/O address
+  to 240, the IRQ line used by the audio interface to 5, the 
+  First DMA channel used by the audio interface to 3, and the 
+  Gameport/Joystick interface to 218".
+
+  Other examples:
+  - To reuse Windows-assigned resource configuration:
+      SBESET -w0
+  - To view a brief description of the parameters:
+      SBESET -?
+  - To display the current SBE configuration:
+      SBESET -c
+
+  For the new configuration to take effect, reboot your computer.
+
+  Notes:
+
+  1. If a parameter that has an associated value is specified, make
+     sure the value is specified as well. Note: there must be no 
+     space between the parameter letter and the numeric value.
+     For example, "-A240" is acceptable but not just "-A"
+
+  2. There must be at least a space between the parameters.
+
+  3. If a parameter is not specified, the previously assigned value 
+     for that parameter is used. For example, in
+        SBESET -A240 -I5 -D3 -J218
+     if the previously assigned value (by Windows or otherwise) for 
+     MPU-401 UART interface’s base I/O address is 330, it will 
+     continue to be so.
+
+3.  RELATED PROGRAM NOTES
+    =========================
+    Note that SBESET.exe program will only work with following
+    release of SBE DOS drivers or later. If you run SBESET.exe
+    with the earlier release of the SBE DOS drivers, there will be
+    unexpected results.
+
+               SBE
+        Related DOS Drivers     File Size           Date
+        -------------------     ---------       --------------
+        SBECFG.EXE  V1.01        27,802         31 August 1998
+        SBEINIT.COM V2.60         4,427         31 August 1998
+
+
+4.  FAQ
+    ====
+    a.  After changing the resource configuration using 
+        SBESET.exe,  can I type 
+              Exit
+        at DOS Mode to go back to Windows and than shut down
+        to DOS Mode again for the changed resources to take 
+        effect?
+
+
+    Ans: No, for changes to take effect, a cold reboot is required.
+
+    b.  After changing the resource configurations using 
+        SBESET.exe, I realisethat the SB Emulation resources 
+        under Device Manager does not reflect changes ?
+
+    Ans: Yes, that is correct.  The resource configurations for 
+         DOS Mode is independent of the resource configuration 
+         mentioned in SB Emulation page under Windows Device 
+         Manager.  SBESET.exe will maintain its own set
+         of resource configurations separate from that of Windows.
+
+    c.  Where did SBESET.exe get its other resource 
+        configurations (for example, Interrupt, First DMA) when I 
+        changed only the Sound Blaster interface base address?
+
+    Ans: When SBESET.exe is run for the first time, it will duplicate 
+         a set of the Windows resources currently assigned for 
+         SB Emulation as it default values.  Any further changes 
+         using SBESET.exe will be based on the initial set of 
+         resources.
+
+    d.  How do I use back my windows assigned resource 
+        configurations in DOS Mode?
+
+    Ans: With SBESET.exe, there is a switch option "-w". 
+         When you run SBESET.exe with the command option 
+         "-w1", SB Emulation in DOS Mode is reconfigured to use 
+         back Windows assigned resources on the next reboot.
+
+                   *** End of SBESET.TXT ****
+
+
+
+

@@ -1,0 +1,5 @@
+[Setup]
+Addname=TW32
+Addvers=1.1
+AddText=; Bu, M-OS Kurulumu ıcın TechWay 3.2 Eklentısıdır.
+Destzip=TW.ZIP

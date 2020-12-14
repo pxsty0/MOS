@@ -1,0 +1,5 @@
+[Setup]
+Addname=CCDOS
+Addvers=1.1
+AddText=Not: Bu M-OS Kur'un kaynak dosyalarıdır.
+Destzip=CCDOS.ZIP

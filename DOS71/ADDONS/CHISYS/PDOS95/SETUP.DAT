@@ -1,0 +1,5 @@
+[Setup]
+Addname=PDOS95
+Addvers=1.0
+AddText=M-os Kurulumu ıcın PDOS95 Eklentısı
+Destzip=PDOS.ZIP

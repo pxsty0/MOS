@@ -1,0 +1,5 @@
+[Setup]
+Addname=GVFM
+Addvers=1.0
+AddText=Graphics Vision File Manager Add-On for MS-DOS 7.10 Setup
+Destzip=GVFM.ZIP

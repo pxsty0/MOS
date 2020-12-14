@@ -1,0 +1,5 @@
+[Setup]
+Addname=FILEMAN
+Addvers=1.0
+AddText=File Manager Add-Ons for MS-DOS 7.10 Setup
+Destzip=FILEMAN.ZIP
